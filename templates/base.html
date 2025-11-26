@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+    {% block title_head %}Base{% endblock title_head %}
+    </title>
+</head>
+
+<body style="background-color: #574d70;">
+
+<nav style="
+    width: 80%;
+    margin: 15px auto 0 auto;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+">
+
+    <a href="{% url 'inicio' %}" style="
+        background: #ffffff;
+        padding: 8px 14px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        text-decoration: none;
+        color: #333;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+    ">inicio</a>
+
+    <a href="{% url 'crear' %}" style="
+        background: #ffffff;
+        padding: 8px 14px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        text-decoration: none;
+        color: #333;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+    ">crear notebook</a>
+
+    <a href="{% url 'listado' %}" style="
+        background: #ffffff;
+        padding: 8px 14px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        text-decoration: none;
+        color: #333;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+    ">listado notebooks</a>
+
+    <a href="{% url 'about' %}" style="
+        background: #ffffff;
+        padding: 8px 14px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        text-decoration: none;
+        color: #333;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+    ">acerca de mi</a>
+
+    {% if request.user.is_authenticated %}
+
+        <span style="
+            margin-left: 8px;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #f0f0f0;
+        ">
+            {{ request.user }}
+        </span>
+
+        <form action="{% url 'logout' %}" method="POST" style="display:inline-block; margin-left: 8px;">
+            {% csrf_token %}
+            <input type="submit" value="logout" style="
+                background: #ffffff;
+                padding: 8px 14px;
+                border-radius: 8px;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+                border: none;
+                cursor: pointer;
+                font-family: Arial, Helvetica, sans-serif;
+                font-weight: bold;
+            ">
+        </form>
+
+    {% else %}
+
+        <a href="{% url 'login' %}" style="
+            background: #ffffff;
+            padding: 8px 14px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            text-decoration: none;
+            color: #333;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+        ">login</a>
+
+        <a href="{% url 'registro' %}" style="
+            background: #ffffff;
+            padding: 8px 14px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            text-decoration: none;
+            color: #333;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+        ">registro</a>
+
+    {% endif %}
+
+</nav>
+
+<main>
+    {% block contenido %}
+    {% endblock contenido %}
+</main>
+
+</body>
+</html>
+

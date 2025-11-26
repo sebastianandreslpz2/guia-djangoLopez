@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title_head %}Acerca de mí{% endblock title_head %}
+
+{% block contenido %}
+
+<div style="
+    background: white;
+    width: 80%;
+    margin: 40px auto;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    font-family: Arial, Helvetica, sans-serif;
+">
+
+    <img src="https://media.tenor.com/qJ5evVs-_uUAAAAd/coding-freak.gif"
+         alt="GIF programador"
+         style="width:200px; border-radius:10px; display:block; margin:0 auto 20px auto;">
+    
+
+    <h1 style="color:#333; margin-bottom:15px;">Acerca de mí</h1>
+
+    <p style="font-size:18px; line-height:1.4;">
+        Mi nombre es Sebastián A. López. Este sitio es el proyecto final del curso de Django.
+    </p>
+
+    <p style="font-size:18px; line-height:1.4;">
+        Soy de CABA (Boedo) y actualmente me encuentro aprendiendo y practicando programación en Python.
+    </p>
+
+    <p style="font-size:18px; line-height:1.4;">
+        La aplicación desarrollada permite crear, listar, ver, actualizar y eliminar notebooks, además de gestionar la información asociada, incluyendo imágenes y campos personalizados.
+    </p>
+
+</div>
+
+{% endblock contenido %}

@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title_head %}Actualizar notebook{% endblock title_head %}
+{% block contenido %}
+
+<div style="
+    width: 50%;
+    margin: 80px auto;
+    padding: 25px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.15);
+    font-family: Arial, Helvetica, sans-serif;
+">
+
+    <h2 style="text-align:center; color:#333; margin-bottom:20px;">
+        Actualizar notebook
+    </h2>
+
+    <form action="{% url 'Actualizar' notebook.id %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        {% for campo in form %}
+            <div style="margin-bottom: 15px;">
+                <label style="display:block; margin-bottom:4px;">
+                    {{ campo.label }}:
+                </label>
+                {{ campo }}
+            </div>
+        {% endfor %}
+
+        <input type="submit" value="Actualizar" style="
+            margin-top: 10px;
+            background:#574d70;
+            color:white;
+            padding:10px 18px;
+            border:none;
+            border-radius:6px;
+            cursor:pointer;
+            width:100%;
+            font-weight:bold;
+        ">
+    </form>
+
+</div>
+
+{% endblock contenido %}

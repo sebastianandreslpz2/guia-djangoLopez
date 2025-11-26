@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title_head %}inicio{% endblock title_head %}
+{% block contenido %}
+
+<div style="
+    background: white;
+    width: 80%;
+    margin: 30px auto;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+">
+
+    <h1 style="color:#333; font-family: Arial, Helvetica, sans-serif; margin-bottom: 10px;">
+        Proyecto final – Gestión de notebooks
+    </h1>
+
+    <p style="font-size:18px; line-height:1.4; font-family: Arial;">
+        Este sitio fue desarrollado como trabajo final del curso de Django.
+    </p>
+
+    <p style="font-size:18px; line-height:1.4; font-family: Arial;">
+        Permite crear, listar, ver, actualizar y eliminar notebooks,
+        además de gestionar información asociada como procesador, memoria RAM e imagen.
+    </p>
+
+</div>
+
+{% endblock contenido %}

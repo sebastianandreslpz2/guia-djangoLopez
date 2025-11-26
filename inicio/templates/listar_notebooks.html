@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block title_head %}listar notebooks{% endblock title_head %}
+{% block contenido %}
+
+<div style="width: 80%; margin: 40px auto; font-family: Arial, Helvetica, sans-serif;">
+
+    <div style="
+        background: white;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.15);
+        margin-bottom: 25px;
+        text-align: center;
+    ">
+        <form action="{% url 'listado' %}" method="GET">
+            {{ formulario }}
+            <input type="submit" value="Refrescar listado de notebooks" style="
+                margin-left: 10px;
+                padding: 6px 12px;
+                border-radius: 6px;
+                border: 1px solid #ccc;
+                cursor: pointer;
+            ">
+        </form>
+    </div>
+
+    {% if listado_notebooks %}
+
+    <div style="
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.15);
+    ">
+        <ul style="list-style-type: none; padding-left: 0;">
+            {% for notebook in listado_notebooks %}
+            <li style="
+                padding: 8px;
+                border-bottom: 1px solid #ddd;
+            ">
+                {{ notebook }}
+                |
+                <a href="{% url 'ver' notebook.id %}">Ver</a> |
+                <a href="{% url 'Actualizar' notebook.id %}">Actualizar</a> |
+                <a href="{% url 'Eliminar' notebook.id %}">Eliminar</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    {% else %}
+
+    <p style="color: white; margin-top: 20px;">No hay notebooks disponibles.</p>
+
+    {% endif %}
+
+</div>
+
+{% endblock contenido %}

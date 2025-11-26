@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title_head %}Ver notebook{% endblock title_head %}
+{% block contenido %}
+
+<div style="
+    width: 50%;
+    margin: 80px auto;
+    padding: 25px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    font-family: Arial, Helvetica, sans-serif;
+">
+
+    <h2 style="text-align:center; color:#333; margin-bottom:20px;">
+        Detalles de la notebook
+    </h2>
+
+    <p style="font-size:18px; margin-bottom:10px;">
+        <strong>Modelo:</strong> {{ notebook.modelo }}
+    </p>
+
+    <p style="font-size:18px; margin-bottom:10px;">
+        <strong>Procesador:</strong> {{ notebook.procesador }}
+    </p>
+
+    <p style="font-size:18px; margin-bottom:20px;">
+        <strong>RAM:</strong> {{ notebook.ram }}
+    </p>
+
+    {% if notebook.imagen %}
+        <div style="text-align:center; margin-top:20px;">
+            <img src="{{ notebook.imagen.url }}" alt="Imagen del notebook"
+                 style="max-width:100%; height:auto; border-radius:10px; box-shadow:0 0 10px rgba(0,0,0,0.2);">
+        </div>
+    {% endif %}
+
+</div>
+
+{% endblock contenido %}
